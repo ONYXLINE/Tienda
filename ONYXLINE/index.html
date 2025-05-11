@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONYX LINE - Salvajemente Elegante</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      animation: pixelReveal 2s ease-in-out;
+    }
+    @keyframes pixelReveal {
+      0% { filter: url(#pixelate); opacity: 0; }
+      50% { filter: url(#pixelate); opacity: 0.5; }
+      100% { filter: none; opacity: 1; }
+    }
+    header {
+      background: #000;
+      padding: 1.5em;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 2px 2px 10px #fff;
+      transform: rotateX(10deg);
+      perspective: 600px;
+      animation: floatText 5s infinite ease-in-out;
+    }
+    @keyframes floatText {
+      0%, 100% { transform: rotateX(10deg) translateY(0); }
+      50% { transform: rotateX(10deg) translateY(-10px); }
+    }
+    nav {
+      margin-top: 1em;
+    }
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #aaa;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    section {
+      padding: 80px 30px;
+      min-height: 100vh;
+      animation: pixelReveal 2s ease-in-out;
+    }
+    @keyframes glitch {
+      0% { transform: scale(1) skew(0deg); }
+      20% { transform: scale(1.02) skew(1deg); }
+      40% { transform: scale(1.01) skew(-1deg); }
+      60% { transform: scale(1.03) skew(2deg); }
+      80% { transform: scale(1) skew(0deg); }
+      100% { transform: scale(1); }
+    }
+    .glitch-transition {
+      animation: glitch 0.8s ease-in-out;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      padding: 40px 0;
+    }
+    .product {
+      overflow: hidden;
+      background: #111;
+      border-radius: 20px;
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+    .product:hover {
+      transform: scale(1.05);
+    }
+    .product img, .product video {
+      width: 100%;
+      height: auto;
+      border-radius: 20px 20px 0 0;
+      transition: transform 0.4s ease;
+    }
+    .product-info {
+      padding: 15px;
+      text-align: center;
+    }
+    .btn {
+      background: #fff;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #ccc;
+    }
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      z-index: 1000;
+    }
+    .whatsapp {
+      bottom: 20px;
+    }
+    
+    .whatsapp a{
+      text-decoration: none;
+      background: #25D366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      font-size: 18px;
+      box-shadow: 0 0 10px #25D366;
+      display: block;
+      text-align: center;
+    }
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 2em;
+      font-size: 14px;
+      color: #ccc;
+    }
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+    .media-icons {
+      margin-top: 1em;
+    }
+    .media-icons a {
+      margin: 0 10px;
+      font-size: 20px;
+    }
+    .section-content {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+    .video, .image-set {
+      margin-top: 20px;
+    }
+    .video,.image-set {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .image-set img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>ONYX LINE</h1>
+  <nav>
+    <a href="#tienda" onclick="switchSection('tienda')">Tienda</a>
+    <a href="#nosotros" onclick="switchSection('nosotros')">Sobre Nosotros</a>
+    <a href="#producto" onclick="switchSection('producto')">Nuestro Producto</a>
+    <a href="#resenas" onclick="switchSection('resenas')">Reseñas</a>
+  </nav>
+</header>
+
+<section id="tienda">
+  <div class="section-content">
+    <h2>Colección Salvaje</h2>
+    <p>Cantidad limitada - Inspirados en el poder y el estilo</p>
+  </div>
+  <div class="gallery">
+    <!-- Camisa Snake -->
+    <div class="product">
+       <video class="product"  autoplay muted src="/ONYXLINE/VIDEOS/camiseta blanca.mp4"></video>
+      <div class="product-info">
+        <h3>Camisa Snake - Blanca</h3>
+        <p>$98.999 COP</p>
+        <button class="btn" onclick="switchSection('producto')">CONOCE MAS!</button>
+      </div>
+    </div>
+    <!-- Camisa Scorpion -->
+    <div class="product">
+       <video  autoplay muted src="/ONYXLINE/VIDEOS/CAMISA NEGRA.mp4"></video>
+      <div class="product-info">
+        <h3>Camisa Scorpion - Negra</h3>
+        <p>$98.999 COP</p>
+        <button class="btn" onclick="switchSection('producto')">CONOCE MAS!</button>
+      </div>
+    </div>
+    <!-- Camisa Mantis -->
+    <div class="product">
+       <video  autoplay muted src="/ONYXLINE/VIDEOS/camisa mantis.mp4"></video>
+      <div class="product-info">
+        <h3>Camisa Mantis - Verde Botella</h3>
+        <p>$98.999 COP</p>
+        <button class="btn" onclick="switchSection('producto')">CONOCE MAS!</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros" style="display:none">
+  <div class="section-content">
+    <h2>Sobre Nosotros</h2>
+    <p>Onyx Line nace en Florencia, Caquetá, con el objetivo de revolucionar la moda urbana con elegancia y carácter. Diseñamos para quienes no temen destacar.</p>
+    <div class="image-set">
+      <img src="/ONYXLINE/fotos/logo coleccion (1).png">
+      <img src="/ONYXLINE/fotos/logo coleccion (1).png">
+      <img src="/ONYXLINE/fotos/logo coleccion (1).png">
+      <p>Onyx Line nace en Florencia, Caquetá, con el objetivo de revolucionar la moda urbana con elegancia y carácter. Diseñamos para quienes no temen destacar.</p>
+    </div>
+    <div class="video">
+      <video width="400" autoplay src="nosotros.mp4"></video>
+    </div>
+  </div>
+</section>
+
+<section id="producto" style="display:none">
+  <div class="section-content">
+    <h2>Nuestro Producto</h2>
+    <p>Nuestras camisas están fabricadas en algodón 265gr con acabados de lujo. Cada pieza incluye pin metálico, estampado original y detalles que transmiten exclusividad.</p>
+    <div class="image-set">
+      <img src="/ONYXLINE/fotos/escorpion back.jpg">
+      <img src="/ONYXLINE/fotos/MANTIS BACK.jpg">
+      <img src="/ONYXLINE/fotos/Serpiente.jpg">
+      <img src="/ONYXLINE/fotos/escorpion back.jpg">
+      <img src="/ONYXLINE/fotos/MANTIS BACK.jpg">
+      <img src="/ONYXLINE/fotos/Serpiente.jpg">
+       <img src="/ONYXLINE/fotos/escorpion back.jpg">
+      <img src="/ONYXLINE/fotos/MANTIS BACK.jpg">
+      <img src="/ONYXLINE/fotos/Serpiente.jpg">
+       <video class="video" width="200" autoplay muted src="/ONYXLINE/VIDEOS/video prueba 1.mp4"></video>
+       <video class="video" width="200" autoplay muted src="/ONYXLINE/VIDEOS/video prueba 1.mp4"></video>
+    </div>
+    <div class="video">
+      <video width="400" autoplay muted src="producto.mp4"></video>
+    </div>
+  </div>
+</section>
+
+<section id="resenas" style="display:none">
+  <div class="section-content">
+    <h2>Reseñas y Experiencias</h2>
+    <blockquote>"Una prenda que cambia cómo me siento y cómo me ven." — Camilo, Cali</blockquote>
+    <blockquote>"El diseño es fuego puro. Me encanta." — Laura, Medellín</blockquote>
+    <blockquote>"Onyx Line = Estilo, calidad y presencia." — Andrés, Bogotá</blockquote>
+    <div class="image-set">
+      <img src="cliente1.jpg">
+      <img src="cliente2.jpg">
+      <img src="cliente3.jpg">
+    </div>
+    <div class="video">
+      <video width="200" controls src="/ONYXLINE/VIDEOS/VIDEO MANTIS.mp4"></video>
+    </div>
+  </div>
+</section>
+
+
+<div class="whatsapp">
+  <a href="https://wa.me/573209394713" target="_blank">WhatsApp</a>
+</div>
+
+<footer>
+  <p>Dirección: Florencia, Caquetá, Colombia - Código Postal 180001</p>
+  <div class="media-icons">
+    <a href="https://instagram.com/onyxline40" target="_blank">Instagram</a>
+    <a href="https://facebook.com/onyxline" target="_blank">Facebook</a>
+  </div>
+  <p>&copy; 2025 Onyx Line - Salvajemente Elegante - Todos los derechos reservados</p>
+</footer>
+
+<script>
+function switchSection(id) {
+  const sections = ['tienda', 'nosotros', 'producto', 'resenas'];
+  sections.forEach(sec => {
+    const el = document.getElementById(sec);
+    if (sec === id) {
+      el.style.display = 'block';
+      el.className = 'glitch-transition';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
